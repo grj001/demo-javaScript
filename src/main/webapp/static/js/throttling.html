@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>debounce(防抖)</title>
+</head>
+<body>
+
+    <button id="throttlingButton" onclick="throttling()">节流</button>
+
+    <script language="JavaScript">
+
+        let timeout = null;
+        let throttling = function () {
+
+            return function () {
+                console.debug("timeout: "+timeout);
+                if (timeout !== null) {
+                    console.debug("clear timeout");
+                    clearTimeout(timeout);
+                }
+                timeout = setTimeout(printNumber, 5000);
+            }();
+        }
+
+        let printNumber = function () {
+            console.debug(11);
+        }
+    </script>
+</body>
+</html>
